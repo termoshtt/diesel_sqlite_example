@@ -1,9 +1,11 @@
 language: rust
 
-rust:
-  - stable
-  - beta
-  - nightly
+matrix:
+  include:
+    - rust: "stable"
+      env: CARGO_FLAG="--no-default-features --features=with-syntex"
+    - rust: "nightly"
+      env: CARGO_FLAG=""
 
 cache: cargo
 
@@ -11,4 +13,4 @@ script:
   - cargo install diesel_cli || true
   - echo "DATABASE_URL=$PWD/test.db" > .env
   - /home/travis/.cargo/bin/diesel setup
-  - cargo build
+  - cargo build $CARGO_FLAG
