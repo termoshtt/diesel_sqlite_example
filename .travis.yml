@@ -8,7 +8,7 @@ rust:
 cache: cargo
 
 script:
-  - cargo install diesel_cli
+  - cargo install diesel_cli || true
   - echo "DATABASE_URL=$PWD/test.db" > .env
   - /home/travis/.cargo/bin/diesel setup
   - cargo build
