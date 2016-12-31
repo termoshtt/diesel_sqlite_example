@@ -7,10 +7,8 @@ rust:
 
 cache: cargo
 
-before_script:
-  - cargo install diesel_cli || true
-
 script:
-  - echo "DATABASE_URL=test.db" > .env
+  - cargo install diesel_cli
+  - echo "DATABASE_URL=$PWD/test.db" > .env
   - diesel setup
   - cargo build
