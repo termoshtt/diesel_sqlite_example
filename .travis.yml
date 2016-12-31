@@ -1,9 +1,5 @@
 language: rust
 
-rust:
-  - stable
-  - nightly
-
 matrix:
   include:
     - rust: "stable"
