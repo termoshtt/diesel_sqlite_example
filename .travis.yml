@@ -10,5 +10,5 @@ cache: cargo
 script:
   - cargo install diesel_cli
   - echo "DATABASE_URL=$PWD/test.db" > .env
-  - diesel setup
+  - /home/travis/.cargo/bin/diesel setup
   - cargo build
